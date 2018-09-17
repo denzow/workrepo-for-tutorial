@@ -6,12 +6,15 @@ from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 
 from .accounts import signup as signup_view
+from .api.accounts import AccountsApi
 
 
 urlpatterns = [
     path('accounts/signup/', signup_view.SignUpView.as_view(), name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+
+    path('api/accounts', AccountsApi.as_view())
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
