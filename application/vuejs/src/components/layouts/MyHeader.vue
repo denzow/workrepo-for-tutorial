@@ -16,9 +16,24 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState, mapActions } = createNamespacedHelpers('header');
 
 export default {
   name: 'MyHeader',
+  computed: {
+    isLoggedIn() {
+      return this.accountInfo !== null;
+    },
+    ...mapState(['accountInfo']),
+  },
+  methods: {
+    ...mapActions(['fetchAccountInfo']),
+  },
+  created() {
+    this.fetchAccountInfo();
+  },
 };
 </script>
 
