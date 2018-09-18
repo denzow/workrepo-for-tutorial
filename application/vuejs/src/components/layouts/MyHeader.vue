@@ -1,9 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <router-link class="navbar-brand" to="/">Django</router-link>
+    <router-link class="navbar-brand" to="/">KANBAN</router-link>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" v-if="isLoggedIn">
+        <span class="navbar-text mr-1">Welcome to {{ accountInfo.name }}</span>
+        <a class="btn btn-outline-primary" href="/accounts/logout/">Logout</a>
+      </ul>
+      <ul class="navbar-nav ml-auto" v-if="!isLoggedIn">
         <li class="nav-item">
           <a class="nav-link" href="#">Register</a>
         </li>
