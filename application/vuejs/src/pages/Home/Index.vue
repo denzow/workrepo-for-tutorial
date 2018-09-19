@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="row no-gutters">
-      {{boardList}}
+      {{ boardList }}
     </div>
   </div>
 </template>
