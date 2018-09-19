@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import createLogger from 'vuex/dist/logger';
 
 import header from './header';
+import home from './pages/home';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     : [],
   modules: {
     header,
+    home,
   },
   state: {
   },

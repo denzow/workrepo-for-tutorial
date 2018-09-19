@@ -11,3 +11,7 @@ class Board(models.Model):
 
     def __str__(self):
         return '{}: {} of {}'.format(self.pk, self.name, self.owner)
+
+    @classmethod
+    def get_list_by_owner(cls, owner):
+        return list(cls.objects.filter(owner=owner).order_by('updated_at'))

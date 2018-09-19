@@ -4,6 +4,7 @@ import WebSocketMiddleware from './middlewares/websocket';
 
 import DefaultLayout from '../components/layouts/DefaultLayout.vue';
 import NotFound from '../pages/NotFound.vue';
+import Home from '../pages/Home/Index.vue';
 
 
 Vue.use(Router);
@@ -15,6 +16,12 @@ const router = new Router({
     {
       path: '/',
       component: DefaultLayout,
+      children: [
+        {
+          path: '',
+          component: Home,
+        },
+      ]
     },
     {
       path: '*',
