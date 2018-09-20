@@ -54,6 +54,11 @@ class KanbanClient extends Client {
     return response.data.boardList;
   }
 
+  async addBoard({ boardName }) {
+    await this._post(`${this.baseUrl}/boards/`, {
+      boardName,
+    });
+  }
 }
 
 
