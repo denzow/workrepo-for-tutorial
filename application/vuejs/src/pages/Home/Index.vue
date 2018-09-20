@@ -5,6 +5,7 @@
                  :title="board.name"
                  :boardId="board.id"
                  :key="board.id" />
+      <AddBoardCard class='board-card col-3' />
     </div>
   </div>
 </template>
@@ -12,6 +13,8 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 import BoardCard from './components/BoardCard.vue';
+import AddBoardCard from './components/AddBoardCard.vue';
+
 
 const { mapState, mapActions } = createNamespacedHelpers('home');
 
@@ -19,6 +22,7 @@ export default {
   name: 'home',
   components: {
     BoardCard,
+    AddBoardCard,
   },
   computed: {
     ...mapState([
