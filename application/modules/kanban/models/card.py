@@ -12,3 +12,7 @@ class Card(models.Model):
 
     def __str__(self):
         return '{}: {} of {}'.format(self.pk, self.title, self.pipe_line)
+
+    @classmethod
+    def get_list_by_pipe_line(cls, pipe_line):
+        return list(cls.objects.filter(pipe_line=pipe_line).order_by('order'))

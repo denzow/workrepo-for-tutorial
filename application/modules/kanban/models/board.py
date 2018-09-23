@@ -15,3 +15,10 @@ class Board(models.Model):
     @classmethod
     def get_list_by_owner(cls, owner):
         return list(cls.objects.filter(owner=owner).order_by('updated_at'))
+
+    @classmethod
+    def get_by_id(cls, board_id):
+        try:
+            return cls.objects.get(pk=board_id)
+        except cls.DoesNotExist:
+            return None

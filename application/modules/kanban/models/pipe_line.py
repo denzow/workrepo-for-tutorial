@@ -11,3 +11,7 @@ class PipeLine(models.Model):
 
     def __str__(self):
         return '{}: {} of {}'.format(self.pk, self.name, self.board)
+
+    @classmethod
+    def get_list_by_board(cls, board):
+        return list(cls.objects.filter(board=board).order_by('order'))
