@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'channels',
+
     'modules.kanban',
 ]
 
@@ -133,3 +136,6 @@ ROOT_URLCONF = 'application.views.urls'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/login/'
 LOGOUT_REDIRECT_URL = '/'
+
+# ASGIの起点を指定
+ASGI_APPLICATION = 'views.routing.application'
