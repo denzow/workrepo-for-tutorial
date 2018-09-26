@@ -12,6 +12,7 @@ class KanbanConsumer(JsonWebsocketConsumer):
         # 後で使う
         self.user = None
         self.board_id = None
+        self.namespace = 'board'
 
     def connect(self):
         # 認証チェック
@@ -29,7 +30,8 @@ class KanbanConsumer(JsonWebsocketConsumer):
     def send_board_data(self):
         board_data = kanban_sv.get_board_data_by_board_id(self.board_id)
         self.send_json({
-            'boardData': board_data
+            'boardData': board_data,
+            'mutation': 'setBoardData',
+            'namespace': self.namespace,
         })
-        print(board_data)
 

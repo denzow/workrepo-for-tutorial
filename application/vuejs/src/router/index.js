@@ -25,6 +25,9 @@ const router = new Router({
         {
           path: 'boards/:boardId',
           component: Board,
+          meta: {
+            ws: route => route.path,
+          },
         },
       ],
     },
