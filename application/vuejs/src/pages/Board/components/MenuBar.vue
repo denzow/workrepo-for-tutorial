@@ -1,6 +1,6 @@
 <template>
   <div class="board-menu-bar navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1 board-name"></span>
+    <span class="navbar-brand mb-0 h1 board-name">{{ boardName }}</span>
     <nav class="my-2 my-md-0 mr-md-3">
       <form class="form-inline mt-2 mt-md-0" id="search-form">
         <input name="query" class="form-control mr-3"
@@ -12,6 +12,9 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState } = createNamespacedHelpers('board');
 
 export default {
   name: 'MenuBar',
@@ -20,6 +23,12 @@ export default {
     };
   },
   computed: {
+    boardName() {
+      return this.boardData.name;
+    },
+    ...mapState([
+      'boardData',
+    ]),
   },
   methods: {
   },
